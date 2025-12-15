@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html>
+<!-- #a6 1e 37 - heller -->
+<!-- #7a 16 29 - dunkler -->
+
+<head lang="en">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Website for MonoDyGauBench</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="MDepth Priors for Monocular Dynamic 3D Reconstrucon">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Depth Priors for Monocular Dynamic 3D Reconstrucon">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="stylesheet" href="css/fontawesome.all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.8.0/codemirror.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.5.3/clipboard.min.js"></script>
+    <script type="text/javascript" async
+        src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-MML-AM_CHTML">
+        </script>
+    <script defer src="js/fontawesome.all.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/synced_video_selector.js"></script>
+    <script src="js/video_comparison.js"></script>
+    <style>
+        .bibtexsection {
+            font-family: "Courier New", "Courier", monospace;
+            font-size: 14px;
+            white-space: pre-wrap;
+            background-color: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 20px;
+            text-align: left;
+            overflow-x: auto;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        @media (max-width: 768px) {
+            .bibtexsection {
+                font-size: 12px;
+                padding: 15px;
+            }
+        }
+
+        .jumbotron {
+            text-align: center;
+        }
+
+        .btn {
+            font-size: 18px;
+        }
+
+        .jumbotron h2 {
+            font-size: 36px;
+        }
+
+        .section {
+            padding-top: 30px;
+        }
+
+        .center {
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Style for active thumbnail */
+        .pill.active {
+            border: 3px solid #7a1629;
+            border-radius: 8px;
+        }
+
+        .thumbnail-img {
+            border-radius: 4px;
+        }
+
+        h2,
+        h3 {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+            <!-- Logo -->
+            <!-- <div style="margin-bottom: 15px; color:#7a1629;">
+                <img src="imgs/Logo_Universitaet_Tuebingen_uni_tue_rot.pdf" alt="Institution Logo"
+                    style="height: 80px; max-width: 100%; object-fit: contain;">
+            </div> -->
+
+            <!-- University affiliation -->
+
+            <br>
+            <h2 id="title">
+                Depth Priors for Monocular Dynamic 3D Reconstruction
+            </h2>
+
+            <div style="font-size: 28px; color:#7a1629; margin-top: 10px;">
+                Master Thesis
+            </div>
+            <br>
+
+            <div style="margin-bottom: 10px; color:#7a1629;">
+                <div style="font-size: 18px; font-weight: 600; letter-spacing: 0.04em;">
+                    Eberhard Karls Universität Tübingen
+                </div>
+                <div style="font-size: 14px; opacity: 0.85;">
+                    Faculty of Science · Department of Computer Science · Autonomous Vision Group
+                </div>
+            </div>
+
+            <hr style="max-width: 600px;">
+
+            <div style="font-size: 20px; margin-bottom: 10px;">
+                <strong>Jonas Klötzl</strong>
+            </div>
+
+            <div style="font-size: 16px; margin-top: 10px;">
+                <div>
+                    <strong>Supervisor</strong>:
+                    <a href="https://s-esposito.github.io" style="color:#7a1629;">Stefano Esposito</a>
+                </div>
+                <div style="margin-top: 5px;">
+                    <strong>Examiners</strong>:
+                    <a href="https://www.cvlibs.net" style="color:#7a1629;">Andreas Geiger </a>,
+                    <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" style="color:#7a1629;">Gerard
+                        Pons-Moll</a>
+                </div>
+            </div>
+
+            <br>
+
+            <a class="btn btn-primary" style="background-color:#7a1629; border-color:#000000b0;"
+                href="https://1drv.ms/f/c/4dd35d8ee847a247/EpmindtZTxxBiSjYVuaaiuUBr7w3nOzEl6GjrWjmVPuBFw?e=cW5gg1">
+                Thesis (Small, 11 MB)
+            </a>
+            <a class="btn btn-primary" style="background-color:#7a1629; border-color:#000000b0;"
+                href="https://arxiv.org/abs/2412.04457">
+                Thesis (Full, 111 MB)
+            </a>
+            <a class="btn btn-primary" style="background-color:#7a1629; border-color:#000000b0;"
+                href="https://github.com/jonaskloetzl/MonoPriorsDyGauBench_code">
+                Code
+            </a>
+
+        </div>
+    </div>
+
+    <div class="text-justify">
+        <div class="container">
+            <div class="section">
+                <div class="col justify-content-center text-center">
+                    <div class="col-sm-12">
+                        <img src="imgs/GS_overview2.png" style="width:80%">
+                    </div>
+                </div>
+                <p class="text-center" style="font-size: 1.2em">
+                    <b>Dynamic Gaussians</b> typically originate from static 3DGS by adding a <span
+                        style="color:#7a1629"><b>Dynamics module</b></span>.
+                </p>
+            </div>
+
+            <div class="section col-sm-12 ">
+                <h2 class="text-center">Abstract</h2>
+                <hr>
+                <div style="display: flex; justify-content: center;">
+                    <p style="max-width: 1200px;">
+                        Recent progress in dynamic scene reconstruction has largely been driven by extending existing 3D
+                        representations, such as NeRF and, more recently, 3D Gaussian Splatting, into the dynamic
+                        domain. While these approaches have demonstrated impressive results, many current dynamic
+                        Gaussian Splatting methods rely solely on RGB supervision, leaving the inherently ill-posed
+                        nature of the task largely unresolved.
+                        Incorporating depth priors might therefore reduce depth ambiguities and improve reconstruction
+                        quality, particularly for explicit representations such as Gaussian Splatting.
+                        However, the practical benefits within existing monocular dynamic reconstruction pipelines
+                        remain largely unexplored.
+                        Leveraging the standardized Monocular Dynamic Gaussian Splatting evaluation framework,
+                        this thesis examines how depth priors can enhance state-of-the-art monocular dynamic 3D
+                        reconstruction methods through three major contributions:
+                        First, an extensive evaluation of modern monocular depth prediction models exposes the most
+                        suitable for reconstruction.
+                        Then, depth supervision is integrated into the reconstruction pipeline through a differentiable
+                        inverse-depth rendering mechanism and a specifically designed loss function for depth maps using
+                        an adaptive weighting scheme.
+                        Lastly, a depth guided initialization procedure is presented for the dynamic foreground area,
+                        enabling a more informed placement of Gaussian primitives at the start of training.
+                        Our experiments show that, for two out of the three investigated methods, depth-based
+                        supervision and initialization consistently enhances reconstruction quality, with improvements
+                        in PSNR of around 0.3 dB to nearly 1 dB. However, the effectiveness is highly dependent on
+                        the underlying motion model, dataset characteristics and depth prediction quality, indicating
+                        that depth integration requires careful and model-specific assessment considering both the prior
+                        quality and the model’s representation of motion.
+                    </p>
+                </div>
+            </div>
+
+            <br>
+            <div class="section col-sm-12 ">
+                <h2 class="text-center"><b>Qualitative Results</b></h2>
+                <hr>
+                <div style="display: flex; justify-content: center;">
+
+                    <div class="container" id="main" style="width:100%">
+                        <br>
+                        <div class="row text-center" style="background-color:rgb(255, 255, 255);">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h2>Depth-Based Supervision</h2>
+                            </div>
+                        </div>
+                        <br>
+                        <!-- Nerfies -->
+                        <div class="row text-center" style="background-color:rgb(240, 240, 240);">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h3> <b>Nerfies </b></h3><br>
+                                <div class="text-center">
+                                    <div class="video-container">
+                                        <video class="video" style="max-width: 100%;" id="nerfies-video" loop
+                                            playsinline autoplay muted>
+                                            <source src="videos/supervision/Nerfies/broom.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="pill-row scene-pills">
+                                        <span class="pill active" data-method="Nerfies" data-scene="broom"
+                                            data-src="videos/supervision/Nerfies/broom.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/Nerfies/broom.png" alt="broom"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="Nerfies" data-scene="curls"
+                                            data-src="videos/supervision/Nerfies/curls.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/Nerfies/curls.png" alt="curls"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="Nerfies" data-scene="tail"
+                                            data-src="videos/supervision/Nerfies/tail.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/Nerfies/tail.png" alt="tail"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="Nerfies" data-scene="toby-sit"
+                                            data-src="videos/supervision/Nerfies/toby-sit.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/Nerfies/toby-sit.png"
+                                                alt="toby-sit" width="64">
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <p class="text-justify" style="text-align: center;">
+                                        Click to select different scenes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- iPhone -->
+                        <div class="row text-center" style="background-color:rgb(255, 255, 255);">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h3> <b>iPhone </b></h3><br>
+                                <div class="text-center">
+                                    <div class="video-container">
+                                        <video class="video" style="max-width: 100%;" id="iphone-video" loop playsinline
+                                            autoplay muted>
+                                            <source src="videos/Supervision/iPhone/apple.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="pill-row scene-pills">
+                                        <span class="pill active" data-method="iPhone" data-scene="apple"
+                                            data-src="videos/supervision/iPhone/apple.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/apple.png" alt="apple"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="backpack"
+                                            data-src="videos/supervision/iPhone/backpack.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/backpack.png"
+                                                alt="backpack" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="block"
+                                            data-src="videos/supervision/iPhone/block.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/block.png" alt="block"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="creeper"
+                                            data-src="videos/supervision/iPhone/creeper.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/creeper.png" alt="creeper"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="handwavy"
+                                            data-src="videos/supervision/iPhone/handwavy.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/handwavy.png"
+                                                alt="handwavy" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="haru-sit"
+                                            data-src="videos/supervision/iPhone/haru-sit.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/haru-sit.png"
+                                                alt="haru-sit" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="mochi-high-five"
+                                            data-src="videos/supervision/iPhone/mochi-high-five.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/mochi-high-five.png"
+                                                alt="mochi-high-five" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="paper-windmill"
+                                            data-src="videos/supervision/iPhone/paper-windmill.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/paper-windmill.png"
+                                                alt="paper-windmill" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="pillow"
+                                            data-src="videos/supervision/iPhone/pillow.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/pillow.png" alt="pillow"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="spin"
+                                            data-src="videos/supervision/iPhone/spin.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/spin.png" alt="spin"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="sriracha-tree"
+                                            data-src="videos/supervision/iPhone/sriracha-tree.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/sriracha-tree.png"
+                                                alt="sriracha-tree" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="teddy"
+                                            data-src="videos/supervision/iPhone/teddy.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/teddy.png" alt="teddy"
+                                                width="64">
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <p class="text-justify" style="text-align: center;">
+                                        Click to select different scenes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="row text-center" style="background-color:rgb(255, 255, 255);">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h2>Depth-Based Gaussian Initialization</h2>
+                            </div>
+                        </div>
+                        <br>
+
+                        <!-- Nerfies -->
+                        <div class="row text-center" style="background-color:rgb(240, 240, 240);">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h3> <b>Nerfies </b></h3><br>
+                                <div class="text-center">
+                                    <div class="video-container">
+                                        <video class="video" style="max-width: 100%;" id="nerfies-gaussian-video" loop
+                                            playsinline autoplay muted>
+                                            <source src="videos/Gaussian_Init/Nerfies/broom.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="pill-row scene-pills">
+                                        <span class="pill active" data-method="Nerfies" data-scene="broom"
+                                            data-src="videos/Gaussian_Init/Nerfies/broom.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/Nerfies/broom.png" alt="broom"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="Nerfies" data-scene="curls"
+                                            data-src="videos/Gaussian_Init/Nerfies/curls.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/Nerfies/curls.png" alt="curls"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="Nerfies" data-scene="tail"
+                                            data-src="videos/Gaussian_Init/Nerfies/tail.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/Nerfies/tail.png" alt="tail"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="Nerfies" data-scene="toby-sit"
+                                            data-src="videos/Gaussian_Init/Nerfies/toby-sit.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/Nerfies/toby-sit.png"
+                                                alt="toby-sit" width="64">
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <p class="text-justify" style="text-align: center;">
+                                        Click to select different scenes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- iPhone -->
+                        <div class="row text-center" style="background-color:rgb(255, 255, 255);">
+                            <div class="col-md-10 col-md-offset-1">
+                                <h3> <b>iPhone </b></h3><br>
+                                <div class="text-center">
+                                    <div class="video-container">
+                                        <video class="video" style="max-width: 100%;" id="iphone-video" loop playsinline
+                                            autoplay muted>
+                                            <source src="videos/Gaussian_Init/iPhone/apple.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="pill-row scene-pills">
+                                        <span class="pill active" data-method="iPhone" data-scene="apple"
+                                            data-src="videos/Gaussian_Init/iPhone/apple.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/apple.png" alt="apple"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="backpack"
+                                            data-src="videos/Gaussian_Init/iPhone/backpack.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/backpack.png"
+                                                alt="backpack" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="block"
+                                            data-src="videos/Gaussian_Init/iPhone/block.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/block.png" alt="block"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="creeper"
+                                            data-src="videos/Gaussian_Init/iPhone/creeper.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/creeper.png" alt="creeper"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="handwavy"
+                                            data-src="videos/Gaussian_Init/iPhone/handwavy.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/handwavy.png"
+                                                alt="handwavy" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="haru-sit"
+                                            data-src="videos/Gaussian_Init/iPhone/haru-sit.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/haru-sit.png"
+                                                alt="haru-sit" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="mochi-high-five"
+                                            data-src="videos/Gaussian_Init/iPhone/mochi-high-five.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/mochi-high-five.png"
+                                                alt="mochi-high-five" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="paper-windmill"
+                                            data-src="videos/Gaussian_Init/iPhone/paper-windmill.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/paper-windmill.png"
+                                                alt="paper-windmill" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="pillow"
+                                            data-src="videos/Gaussian_Init/iPhone/pillow.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/pillow.png" alt="pillow"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="spin"
+                                            data-src="videos/Gaussian_Init/iPhone/spin.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/spin.png" alt="spin"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="sriracha-tree"
+                                            data-src="videos/Gaussian_Init/iPhone/sriracha-tree.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/sriracha-tree.png"
+                                                alt="sriracha-tree" width="64">
+                                        </span>
+                                        <span class="pill" data-method="iPhone" data-scene="teddy"
+                                            data-src="videos/Gaussian_Init/iPhone/teddy.mp4">
+                                            <img class="thumbnail-img" src="thumbnails/iPhone/teddy.png" alt="teddy"
+                                                width="64">
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <p class="text-justify" style="text-align: center;">
+                                        Click to select different scenes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- NeRF-DS -->
+                        <!-- <div class="row text-center" style="background-color:rgb(240, 240, 240);">
+                            <div class="col-md-8 col-md-offset-2">
+                                <h3> NeRF-DS </h3><br>
+                                <div class="text-center">
+                                    <div class="video-container">
+                                        <video class="video" style="max-width: 100%;" id="nerfds-video" loop playsinline
+                                            autoplay muted>
+                                            <source src="videos/NeRF-DS/as.mp4" type="video/mp4">
+                                        </video>
+                                    </div>
+                                    <div class="pill-row scene-pills">
+                                        <span class="pill active" data-method="NeRF-DS" data-scene="as">
+                                            <img class="thumbnail-img" src="thumbnails/NeRF-DS/as.png" alt="as"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="NeRF-DS" data-scene="sieve">
+                                            <img class="thumbnail-img" src="thumbnails/NeRF-DS/sieve.png" alt="sieve"
+                                                width="64">
+                                        </span>
+                                        <span class="pill" data-method="NeRF-DS" data-scene="plate">
+                                            <img class="thumbnail-img" src="thumbnails/NeRF-DS/plate.png" alt="plate"
+                                                width="64">
+                                        </span>
+                                    </div>
+                                    <br>
+                                    <p class="text-justify" style="text-align: center;">
+                                        Click to select different scenes.
+                                    </p>
+                                </div>
+                            </div>
+                        </div> -->
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="section col-sm-12 ">
+                <h2 class="text-center"><b></b></h2>
+                <hr>
+                <div style="display: flex; justify-content: center;">
+                </div>
+            </div>
+
+            <script>
+                // Hardcoded video switching
+                document.querySelectorAll('.pill').forEach(pill => {
+                    pill.addEventListener('click', function () {
+                        const video = this.closest('.text-center').querySelector('video');
+                        const source = video.querySelector('source');
+                        source.src = this.getAttribute('data-src');
+                        video.load();
+                        video.play();
+
+                        this.parentNode.querySelectorAll('.pill').forEach(p => p.classList.remove('active'));
+                        this.classList.add('active');
+                    });
+                });
+            </script>
+
+            <footer class="site-footer">
+                <div class="container text-center">
+                    <hr>
+                    <p>
+                        Website adapted from
+                        <a href="https://github.com/lynl7130/MonoDyGauBench_code" target="_blank"
+                            style="color:#7a1629;">
+                            MonoDyGauBench
+                        </a>
+                    </p>
+
+                    <!-- change the color of the linkds -->
+                    <!-- <p class="footer-links">
+                        <a href="https://arxiv.org/abs/2412.04457" target="_blank" style="color:#7a1629;">
+                            <i class="ai ai-arxiv"></i> arXiv
+                        </a>
+                        ·
+                        <a href="https://github.com/lynl7130/MonoDyGauBench_code" target="_blank"
+                            style="color:#7a1629;">
+                            <i class="fa fa-github"></i> Code
+                        </a>
+                        ·
+                        <a href="https://1drv.ms/f/c/4dd35d8ee847a247/EpmindtZTxxBiSjYVuaaiuUBr7w3nOzEl6GjrWjmVPuBFw?e=cW5gg1"
+                            target="_blank" style="color:#7a1629;">
+                            <i class="fa fa-database"></i> Dataset
+                        </a>
+                    </p> -->
+                    <p class="footer-note">
+                        © 2025 Jonas Klötzl · Master Thesis
+                    </p>
+                </div>
+            </footer>
+</body>
+
+</html>
