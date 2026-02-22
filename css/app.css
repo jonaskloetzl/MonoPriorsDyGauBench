@@ -518,3 +518,110 @@ input:checked+.slider:after {
   width: 100%;
   height: 100%;
 }
+
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+/* Newly added CSS for the new website design. */
+/* -------------------------------------------------------------------------------------------------------------------------------------------- */
+
+/* Dark red hero section */
+.jumbotron {
+  background-color: #7a1629;
+  /* Uni Tübingen dark red */
+  color: #ffffff;
+  margin-bottom: 0;
+}
+
+/* Headings */
+.jumbotron h2,
+.jumbotron h3 {
+  color: #ffffff;
+}
+
+/* Subtitles & meta text */
+.jumbotron .subtitle,
+.jumbotron .affiliation {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+/* Fine print */
+.jumbotron .affiliation small {
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* Links inside jumbotron */
+.jumbotron a {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.jumbotron a:hover {
+  color: #ffffff;
+}
+
+/* Horizontal rule */
+.jumbotron hr {
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+/* Buttons */
+.jumbotron .btn-primary {
+  background-color: transparent;
+  border: 2px solid rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+}
+
+.jumbotron .btn-primary:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  border-color: #ffffff;
+}
+
+/* Button container */
+.hero-buttons {
+  margin-top: 25px;
+}
+
+/* Base button style */
+.btn-hero {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  /*no border*/
+  border: 1.8px transparent rgba(255, 255, 255, 0.6);
+  padding: 10px 22px;
+  font-size: 16px;
+  border-radius: 999px;
+  /* pill style */
+  margin: 5px 6px;
+  transition: all 0.25s ease;
+  text-decoration: none !important;
+}
+
+/* Hover effect */
+.btn-hero:hover {
+  background-color: rgba(255, 255, 255, 0.28);
+  border-color: #ffffff;
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+/* Secondary button (Code) */
+.btn-hero-outline {
+  background-color: transparent;
+  border-color: rgba(255, 255, 255, 0.45);
+}
+
+.btn-hero-outline:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Mobile polish */
+@media (max-width: 768px) {
+  .btn-hero {
+    font-size: 15px;
+    padding: 9px 18px;
+  }
+}
+
+#title {
+  font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+  font-weight: 500;
+}

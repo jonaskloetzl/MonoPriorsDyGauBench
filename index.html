@@ -92,16 +92,19 @@
     </style>
 </head>
 
-<body>
-    <div class="jumbotron jumbotron-fluid">
-        <div class="container text-center">
-            <!-- Logo -->
-            <!-- <div style="margin-bottom: 15px; color:#7a1629;">
-                <img src="imgs/Logo_Universitaet_Tuebingen_uni_tue_rot.pdf" alt="Institution Logo"
-                    style="height: 80px; max-width: 100%; object-fit: contain;">
-            </div> -->
 
-            <!-- University affiliation -->
+<body>
+    <script>
+        document.getElementById("current-year").textContent =
+            new Date().getFullYear();
+    </script>
+    <!-- <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+
+            <div style="margin-bottom: 15px; color:#7a1629;">
+                <img src="imgs/Logo_Universitaet_Tuebingen_uni_tue_dark_rot.svg" alt="Institution Logo"
+                    style="height: 60px; max-width: 100%; object-fit: contain;">
+            </div>
 
             <br>
             <h2 id="title">
@@ -122,6 +125,7 @@
                 </div>
             </div>
 
+
             <hr style="max-width: 600px;">
 
             <div style="font-size: 20px; margin-bottom: 10px;">
@@ -135,7 +139,7 @@
                 </div>
                 <div style="margin-top: 5px;">
                     <strong>Examiners</strong>:
-                    <a href="https://www.cvlibs.net" style="color:#7a1629;">Andreas Geiger </a>,
+                    <a href="https://www.cvlibs.net" style="color:#7a1629;">Andreas Geiger</a>,
                     <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html" style="color:#7a1629;">Gerard
                         Pons-Moll</a>
                 </div>
@@ -143,10 +147,6 @@
 
             <br>
 
-            <!-- <a class="btn btn-primary" style="background-color:#7a1629; border-color:#000000b0;"
-                href="https://1drv.ms/f/c/4dd35d8ee847a247/EpmindtZTxxBiSjYVuaaiuUBr7w3nOzEl6GjrWjmVPuBFw?e=cW5gg1">
-                Thesis (Small, 11 MB)
-            </a> -->
             <a class="btn btn-primary" style="background-color:#7a1629; border-color:#000000b0;"
                 href="MasterThesisJonasKloetzl_small.pdf" target="_blank" rel="noopener noreferrer"
                 title="Open my Master’s thesis in a new window">
@@ -157,14 +157,79 @@
                 title="Open my Master’s thesis in a new window">
                 Thesis (Full, 33 MB)
             </a>
-            <!-- <a class="btn btn-primary" style="background-color:#7a1629; border-color:#000000b0;"
-                href="https://arxiv.org/abs/2412.04457">
-                Thesis (Full, 111 MB)
-            </a> -->
             <a class="btn btn-primary" style="background-color:#7a1629; border-color:#000000b0;"
                 href="https://github.com/jonaskloetzl/MonoPriorsDyGauBench_code">
                 Code
             </a>
+
+        </div>
+    </div> -->
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container text-center">
+
+            <div style="margin-bottom: 15px;">
+                <img src="imgs/Logo_Universitaet_Tuebingen_uni_tue_white.svg" alt="Institution Logo"
+                    style="height: 80px; max-width: 100%; object-fit: contain;">
+            </div>
+
+            <br>
+            <h2 id="title">
+                Depth Priors for Monocular Dynamic 3D Reconstruction
+            </h2>
+
+            <div style="font-size: 22px; margin-top: 10px;">
+                Master Thesis
+            </div>
+            <br>
+
+            <div style="margin-bottom: 10px;">
+                <div style="font-size: 18px; font-weight: 600; letter-spacing: 0.04em;">
+                    Eberhard Karls Universität Tübingen
+                </div>
+                <div style="font-size: 14px; opacity: 0.85;">
+                    Faculty of Science · Department of Computer Science · Autonomous Vision Group
+                </div>
+            </div>
+
+
+            <hr style="max-width: 600px;">
+
+            <div style="font-size: 20px; margin-bottom: 10px;">
+                <strong>Jonas Klötzl</strong>
+            </div>
+
+            <div style="font-size: 16px; margin-top: 10px;">
+                <div>
+                    <strong>Supervisor</strong>:
+                    <a href="https://s-esposito.github.io">Stefano Esposito</a>
+                </div>
+                <div style="margin-top: 5px;">
+                    <strong>Examiners</strong>:
+                    <a href="https://www.cvlibs.net">Andreas Geiger</a>,
+                    <a href="https://virtualhumans.mpi-inf.mpg.de/people/pons-moll.html">Gerard
+                        Pons-Moll</a>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="hero-buttons">
+                <a class="btn btn-hero" href="MasterThesisJonasKloetzl_small.pdf" target="_blank"
+                    rel="noopener noreferrer">
+                    Thesis (Small, 11 MB)
+                </a>
+
+                <a class="btn btn-hero" href="MasterThesisJonasKloetzl_large.pdf" target="_blank"
+                    rel="noopener noreferrer">
+                    Thesis (Full, 33 MB)
+                </a>
+
+                <a class="btn btn-hero" href="https://github.com/jonaskloetzl/MonoPriorsDyGauBench_code" target="_blank"
+                    rel="noopener noreferrer">
+                    Code
+                </a>
+            </div>
 
         </div>
     </div>
@@ -570,10 +635,14 @@
                         </a>
                     </p> -->
                     <p class="footer-note">
-                        © 2025 Jonas Klötzl · Master Thesis
+                        © 2025 - <span id="current-year"></span> Jonas Klötzl · Master Thesis
                     </p>
                 </div>
             </footer>
+            <script>
+                document.getElementById("current-year").textContent =
+                    new Date().getFullYear();
+            </script>
 </body>
 
 </html>
